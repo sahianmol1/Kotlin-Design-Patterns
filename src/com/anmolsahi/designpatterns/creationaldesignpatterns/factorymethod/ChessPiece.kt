@@ -1,10 +1,13 @@
 package com.anmolsahi.designpatterns.creationaldesignpatterns.factorymethod
 
-sealed class ChessPiece(val mFile: Char, val mRank: Char) {
-    data class Pawn(val file: Char, val rank: Char) : ChessPiece(file, rank)
-    data class Rook(val file: Char, val rank: Char) : ChessPiece(file, rank)
-    data class Knight(val file: Char, val rank: Char) : ChessPiece(file, rank)
-    data class Bishop(val file: Char, val rank: Char) : ChessPiece(file, rank)
-    data class Queen(val file: Char, val rank: Char) : ChessPiece(file, rank)
-    data class King(val file: Char, val rank: Char) : ChessPiece(file, rank)
+sealed interface ChessPiece {
+    val file: Char
+    val rank: Char
+
+    data class Pawn(override val file: Char, override val rank: Char) : ChessPiece
+    data class Rook(override val file: Char, override val rank: Char) : ChessPiece
+    data class Knight(override val file: Char, override val rank: Char) : ChessPiece
+    data class Bishop(override val file: Char, override val rank: Char) : ChessPiece
+    data class Queen(override val file: Char, override val rank: Char) : ChessPiece
+    data class King(override val file: Char, override val rank: Char) : ChessPiece
 }
