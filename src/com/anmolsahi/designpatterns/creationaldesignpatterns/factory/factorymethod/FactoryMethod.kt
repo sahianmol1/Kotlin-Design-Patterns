@@ -15,12 +15,12 @@ fun main() {
 }
 
 /**
- * Factory Method aka Simple Factory method is used for creating objects.
- * When the creation of objects is delegated to a method, we call it the Factory method design pattern.
+ * This is an example of a Simple Factory pattern. It is not a GoF (Gang of Four) design pattern
+ * but more of a programming idiom.
  *
- * This method provides a flexible and extensible approach to creating objects based on the configurations.
+ * It provides a simple way to centralize object creation logic, decoupling the client from concrete implementations.
  *
- * Tip: Whenever you see an enum and you need objects, think of using Factory Method.
+ * Tip: Whenever you see an enum and you need objects of a similar family, think of using simple Factory Method.
  */
 private fun createPiece(notation: String): ChessPiece {
     val (type, file, rank) = notation.toCharArray()
