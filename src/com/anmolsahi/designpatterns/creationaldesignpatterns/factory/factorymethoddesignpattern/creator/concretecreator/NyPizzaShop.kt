@@ -1,4 +1,9 @@
-package com.anmolsahi.designpatterns.creationaldesignpatterns.factory.factorymethoddesignpattern
+package com.anmolsahi.designpatterns.creationaldesignpatterns.factory.factorymethoddesignpattern.creator.concretecreator
+
+import com.anmolsahi.designpatterns.creationaldesignpatterns.factory.factorymethoddesignpattern.creator.abstractcreator.PizzaShop
+import com.anmolsahi.designpatterns.creationaldesignpatterns.factory.factorymethoddesignpattern.product.abstractproduct.Pizza
+import com.anmolsahi.designpatterns.creationaldesignpatterns.factory.factorymethoddesignpattern.product.concreteproduct.NyStyleCheesePizza
+import com.anmolsahi.designpatterns.creationaldesignpatterns.factory.factorymethoddesignpattern.product.concreteproduct.NyStylePepperoniPizza
 
 /**
  * This is a Concrete Creator.
@@ -18,26 +23,5 @@ class NyPizzaShop: PizzaShop() {
             "pepperoni" -> NyStylePepperoniPizza()
             else -> throw IllegalArgumentException("Unknown pizza type: $type")
         }
-    }
-}
-
-/**
- * This is a Concrete Product.
- *
- * Concrete Products are various implementations of the Product interface.
- * These are the objects that belong to a specific family and are created by the factory method.
- */
-class NyStyleCheesePizza() : Pizza {
-    init {
-        println("Creating New york style thin crust cheese pizza")
-    }
-}
-
-/**
- * This is another Concrete Product from the same family.
- */
-class NyStylePepperoniPizza() : Pizza {
-    init {
-        println("Creating New york style thin crust pepperoni pizza")
     }
 }
