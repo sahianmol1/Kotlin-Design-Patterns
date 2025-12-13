@@ -16,24 +16,33 @@ class PushNotification(): Notification {
     }
 }
 
+class NotificationManager() {
+    private val notifications = mutableListOf<Notification>()
+
+    fun addNotification(type: NotificationType) {
+        notifications.add(NotificationFactory.createNotification(type))
+    }
+
+    fun sendNotifications() {
+        require(notifications.isNotEmpty()) { "No notifications found to send" }
+        notifications.forEach { it.send() }
+    }
+}
 
 object NotificationFactory {
     fun createNotification(type: NotificationType) : Notification{
-         return when (type) {
-            NotificationType.EMAIL -> {
-                EmailNotification()
-            }
-
-            NotificationType.PUSH -> {
-                PushNotification()
-            }
+        return when (type) {
+            NotificationType.EMAIL -> EmailNotification()
+            NotificationType.PUSH -> PushNotification()
         }
     }
 }
 
 fun main() {
-    val notification = NotificationFactory.createNotification(type = NotificationType.PUSH)
-    notification.send()
+    val notificationManager = NotificationManager()
+    notificationManager.addNotification(NotificationType.EMAIL)
+    notificationManager.addNotification(NotificationType.PUSH)
+    notificationManager.sendNotifications()
 }
 
 enum class NotificationType { EMAIL, PUSH }
