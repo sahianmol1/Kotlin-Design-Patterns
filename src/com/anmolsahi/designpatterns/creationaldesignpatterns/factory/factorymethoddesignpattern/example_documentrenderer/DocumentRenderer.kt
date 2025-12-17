@@ -22,6 +22,7 @@ abstract class Document() {
 
     private val elements = mutableListOf<Element>()
 
+    // Factory method
     abstract fun createParagraph(text: String): Element
 
     fun addParagraph(text: String) = elements.add(createParagraph(text))

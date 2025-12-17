@@ -30,7 +30,8 @@ class NotificationManager() {
 }
 
 object NotificationFactory {
-    fun createNotification(type: NotificationType) : Notification{
+    // Simple factory method
+    fun createNotification(type: NotificationType) : Notification {
         return when (type) {
             NotificationType.EMAIL -> EmailNotification()
             NotificationType.PUSH -> PushNotification()
