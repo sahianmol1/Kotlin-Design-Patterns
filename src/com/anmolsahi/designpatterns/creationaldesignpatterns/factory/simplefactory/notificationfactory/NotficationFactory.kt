@@ -1,4 +1,4 @@
-package com.anmolsahi.designpatterns.creationaldesignpatterns.factory.factorymethod.notificationfactory
+package com.anmolsahi.designpatterns.creationaldesignpatterns.factory.simplefactory.notificationfactory
 
 interface Notification {
     fun send()

@@ -1,4 +1,4 @@
-package com.anmolsahi.designpatterns.creationaldesignpatterns.factory.factorymethod.documentRenderer
+package com.anmolsahi.designpatterns.creationaldesignpatterns.factory.simplefactory.documentRenderer
 
 // This is just another example of a Simple Factory
 class Document(private val documentType: DocumentType) {

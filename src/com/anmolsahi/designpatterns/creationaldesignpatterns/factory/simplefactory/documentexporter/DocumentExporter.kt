@@ -1,4 +1,4 @@
-package com.anmolsahi.designpatterns.creationaldesignpatterns.factory.factorymethod.documentexporter
+package com.anmolsahi.designpatterns.creationaldesignpatterns.factory.simplefactory.documentexporter
 
 class Document(private val exporterFactory: SimpleDocumentExporterFactory) {
     // Logic to add more functionality to the document goes here

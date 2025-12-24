@@ -1,0 +1,33 @@
+@startuml
+class Document {
+    - exporterFactory: SimpleDocumentExporterFactory
+    + export(type: DocumentType)
+}
+
+interface DocumentExporter {
+    + export()
+}
+
+class PdfExporter implements DocumentExporter {
+    + export()
+}
+
+class DocXExporter implements DocumentExporter {
+    + export()
+}
+
+class HtmlExporter implements DocumentExporter {
+    + export()
+}
+
+class CsvExporter implements DocumentExporter {
+    + export()
+}
+
+class SimpleDocumentExporterFactory {
+    + getDocumentExporter(type: DocumentType): DocumentExporter
+}
+
+Document -> SimpleDocumentExporterFactory
+SimpleDocumentExporterFactory -> DocumentExporter
+@enduml

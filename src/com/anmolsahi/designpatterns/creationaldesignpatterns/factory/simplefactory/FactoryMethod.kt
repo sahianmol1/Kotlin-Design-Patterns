@@ -1,4 +1,4 @@
-package com.anmolsahi.designpatterns.creationaldesignpatterns.factory.factorymethod
+package com.anmolsahi.designpatterns.creationaldesignpatterns.factory.simplefactory
 
 fun main() {
     val notations = listOf("pa8", "qc3", "nf3", "pe4", "pd4", "pc4", "pg3", "pb3", "nf6", "pc5", "pe5", "pd5")

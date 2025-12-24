@@ -1,4 +1,4 @@
-package com.anmolsahi.designpatterns.creationaldesignpatterns.factory.factorymethod
+package com.anmolsahi.designpatterns.creationaldesignpatterns.factory.simplefactory
 
 sealed interface ChessPiece {
     val file: Char
