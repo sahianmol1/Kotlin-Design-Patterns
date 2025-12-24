@@ -1,10 +1,10 @@
 package com.anmolsahi.designpatterns.creationaldesignpatterns.factory.factorymethod.documentexporter
 
-class Document(private val documentExporterFactory: SimpleDocumentExporterFactory) {
+class Document(private val exporterFactory: SimpleDocumentExporterFactory) {
     // Logic to add more functionality to the document goes here
 
-    fun exportDocument(type: DocumentType) {
-        val documentExporter: DocumentExporter = documentExporterFactory.createDocumentExporter(type)
+    fun export(type: DocumentType) {
+        val documentExporter = exporterFactory.getDocumentExporter(type)
         documentExporter.export()
     }
 }
@@ -13,44 +13,44 @@ interface DocumentExporter {
     fun export()
 }
 
-class PdfDocumentExporter : DocumentExporter {
+class PdfExporter : DocumentExporter {
     override fun export() {
         println("Exporting document as PDF")
     }
 }
 
-class DocxDocumentExporter : DocumentExporter {
+class DocXExporter : DocumentExporter {
     override fun export() {
         println("Exporting document as DOCX")
     }
 }
 
-class HtmlDocumentExporter : DocumentExporter {
+class HtmlExporter : DocumentExporter {
     override fun export() {
         println("Exporting document as HTML")
     }
 }
 
-class CsvDocumentExporter : DocumentExporter {
+class CsvExporter : DocumentExporter {
     override fun export() {
         println("Exporting document as CSV")
     }
 }
 
 object SimpleDocumentExporterFactory {
-    fun createDocumentExporter(type: DocumentType): DocumentExporter {
+    fun getDocumentExporter(type: DocumentType): DocumentExporter {
         return when (type) {
-            DocumentType.PDF -> PdfDocumentExporter()
-            DocumentType.DOCX -> DocxDocumentExporter()
-            DocumentType.HTML -> HtmlDocumentExporter()
-            DocumentType.CSV -> CsvDocumentExporter()
+            DocumentType.PDF -> PdfExporter()
+            DocumentType.DOCX -> DocXExporter()
+            DocumentType.HTML -> HtmlExporter()
+            DocumentType.CSV -> CsvExporter()
         }
     }
 }
 
 fun main() {
     val document = Document(SimpleDocumentExporterFactory)
-    document.exportDocument(type = DocumentType.DOCX)
+    document.export(type = DocumentType.DOCX)
 }
 
 enum class DocumentType { PDF, DOCX, HTML, CSV }
